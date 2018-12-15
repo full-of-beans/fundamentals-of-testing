@@ -1,9 +1,25 @@
 const sum = (a, b) => a + b;
 const subtract = (a, b) => a + b;
 
-const test = (title, callback) => {
+const asyncSum = (a, b) => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve(sum(a, b));
+    }, 500);
+  });
+};
+
+const asyncSubtract = (a, b) => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve(subtract(a, b));
+    }, 500);
+  });
+};
+
+const test = async (title, callback) => {
   try {
-    callback();
+    await callback();
     console.log(`✓ ${title}`);
   } catch (error) {
     console.error(`✕ ${title}`);
@@ -21,14 +37,14 @@ const expect = actual => {
   };
 };
 
-test("sum adds numbers", () => {
-  let result = sum(3, 7);
+test("sum adds numbers", async () => {
+  let result = await asyncSum(3, 7);
   let expected = 10;
   expect(result).toBe(expected);
 });
 
-test("subtract subtracts numbers", () => {
-  result = subtract(7, 3);
+test("subtract subtracts numbers", async () => {
+  result = await asyncSubtract(7, 3);
   expected = 4;
   expect(result).toBe(expected);
 });
