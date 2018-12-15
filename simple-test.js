@@ -1,6 +1,16 @@
 const sum = (a, b) => a + b;
 const subtract = (a, b) => a + b;
 
+const test = (title, callback) => {
+  try {
+    callback();
+    console.log(`✓ ${title}`);
+  } catch (error) {
+    console.error(`✕ ${title}`);
+    console.error(error);
+  }
+};
+
 const expect = actual => {
   return {
     toBe(expected) {
@@ -11,10 +21,14 @@ const expect = actual => {
   };
 };
 
-let result = sum(3, 7);
-let expected = 10;
-expect(result).toBe(expected);
+test("sum adds numbers", () => {
+  let result = sum(3, 7);
+  let expected = 10;
+  expect(result).toBe(expected);
+});
 
-result = subtract(7, 3);
-expected = 4;
-expect(result).toBe(expected);
+test("subtract subtracts numbers", () => {
+  result = subtract(7, 3);
+  expected = 4;
+  expect(result).toBe(expected);
+});
