@@ -1,0 +1,23 @@
+{
+  "name": "fundamentals-of-testing",
+  "version": "1.0.0",
+  "description": "<h1 align=\"center\">   Fundamentals of testing (in JavaScript) </h1>",
+  "main": "simple-test.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "node --require ./lib/setup-globals.js simple-test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/full-of-beans/fundamentals-of-testing.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/full-of-beans/fundamentals-of-testing/issues"
+  },
+  "homepage": "https://github.com/full-of-beans/fundamentals-of-testing#readme"
+}
